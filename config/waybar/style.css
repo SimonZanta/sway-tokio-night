@@ -1,0 +1,163 @@
+@define-color base     #1a1b26;
+@define-color surface  #292e42;
+@define-color overlay  #565f89;
+@define-color text     #c0caf5;
+@define-color subtext  #a9b1d6;
+@define-color blue     #7aa2f7;
+@define-color lavender #bb9af7;
+@define-color green    #9ece6a;
+@define-color yellow   #e0af68;
+@define-color peach    #ff9e64;
+@define-color red      #f7768e;
+@define-color mauve    #7dcfff;
+@define-color teal     #73daca;
+
+* {
+    font-family: "Ubuntu", "Symbols Nerd Font", sans-serif;
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+window#waybar {
+    background: alpha(@base, 0.85);
+    color: @text;
+    border-radius: 12px;
+}
+
+tooltip {
+    background: @base;
+    border: 1px solid @overlay;
+    border-radius: 8px;
+}
+
+#workspaces {
+    margin: 4px 0 4px 6px;
+}
+
+#workspaces button {
+    padding: 0 10px;
+    margin: 0 2px;
+    color: @subtext;
+    background: transparent;
+    border-radius: 8px;
+}
+
+#workspaces button:hover {
+    background: @surface;
+    color: @text;
+}
+
+#workspaces button.focused {
+    background: @blue;
+    color: @base;
+}
+
+#workspaces button.urgent {
+    background: @red;
+    color: @base;
+}
+
+#mode {
+    background: @peach;
+    color: @base;
+    padding: 0 10px;
+    margin: 4px 0;
+    border-radius: 8px;
+}
+
+#window {
+    color: @subtext;
+    padding: 0 10px;
+}
+
+#clock,
+#language,
+#custom-vpn,
+#bluetooth,
+#network,
+#pulseaudio,
+#cpu,
+#memory,
+#temperature,
+#tray,
+#custom-power {
+    background: @surface;
+    padding: 0 12px;
+    margin: 4px 0;
+    border-radius: 8px;
+}
+
+#clock {
+    color: @lavender;
+    font-weight: bold;
+}
+
+#language {
+    color: @blue;
+}
+
+#custom-vpn.on {
+    color: @green;
+}
+
+#custom-vpn.off {
+    color: @overlay;
+}
+
+#bluetooth {
+    color: @blue;
+}
+
+#bluetooth.off,
+#bluetooth.disabled {
+    color: @overlay;
+}
+
+#bluetooth.connected {
+    color: @teal;
+}
+
+#network {
+    color: @mauve;
+}
+
+#network.disconnected {
+    color: @red;
+}
+
+#pulseaudio {
+    color: @yellow;
+}
+
+#pulseaudio.muted {
+    color: @overlay;
+}
+
+#cpu {
+    color: @green;
+}
+
+#memory {
+    color: @peach;
+}
+
+#temperature {
+    color: @teal;
+}
+
+#temperature.critical {
+    background: @red;
+    color: @base;
+}
+
+#custom-power {
+    color: @red;
+    margin-right: 6px;
+}
+
+#custom-power:hover {
+    background: @red;
+    color: @base;
+}
