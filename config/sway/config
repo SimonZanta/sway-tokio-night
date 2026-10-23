@@ -16,7 +16,7 @@ set $right l
 # Your preferred terminal emulator
 set $term foot
 # Your preferred application launcher
-set $menu fuzzel
+set $menu env XDG_DATA_DIRS=/usr/local/share:/usr/share:/var/lib/snapd/desktop fuzzel
 
 include /etc/sway/config-vars.d/*
 
@@ -84,6 +84,7 @@ input type:keyboard {
 
     # Start your launcher
     bindsym $mod+d exec $menu
+    bindsym $mod+n exec makoctl menu -- fuzzel -d
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -135,6 +136,8 @@ input type:keyboard {
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
+    bindsym $mod+Prior workspace prev
+    bindsym $mod+Next workspace next
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
@@ -239,6 +242,7 @@ bar {
 include /etc/sway/config.d/*
 exec blueman-applet
 exec mako
+exec ~/.config/sway/renumber-workspaces.sh
 for_window [app_id="vpn-prompt"] floating enable
 
 default_border pixel 2
